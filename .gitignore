@@ -1,1 +1,6 @@
-/.vagrant
+*
+!.gitignore
+!Vagrantfile
+!.provision/*
+!README.md
+!LICENSE
