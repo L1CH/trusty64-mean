@@ -33,6 +33,14 @@ if [ -z "$(command -v mongo)" ]; then
   echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
   sudo apt-get update
   sudo apt-get -y install mongodb-org
+  echo 'Special System Tune for MongoDB...'
+  sudo cp /etc/default/grub /etc/default/grub.bak
+  sed -r 's/GRUB_CMDLINE_LINUX_DEFAULT="[a-zA-Z0-9_= ]*/& transparent_hugepage=never/' /etc/default/grub | sudo tee /etc/default/grub
+  if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
+    sudo cp /etc/default/grub.d/50-cloudimg-settings.cfg /etc/default/grub.d/50-cloudimg-settings.cfg.bak
+    sed -r 's/GRUB_CMDLINE_LINUX_DEFAULT="[a-zA-Z0-9_= ]*/& transparent_hugepage=never/' /etc/default/grub.d/50-cloudimg-settings.cfg | sudo tee /etc/default/grub.d/50-cloudimg-settings.cfg
+  fi
+  sudo update-grub
 else
   echo 'MongoDB already installed.'
 fi
@@ -108,6 +116,7 @@ if [ -z "$(command -v mean)" ]; then
 else
   npm update -g mean-cli
 fi
+# Install Mean.js
 if [ -z "$(command -v yo)" ]; then
   npm install -g yo
 else
