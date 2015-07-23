@@ -16,7 +16,7 @@ sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get -y dist-upgrade
 # Install packages
-sudo apt-get -y install vim git
+sudo apt-get -y install vim git ruby
 
 echo ''
 echo '=========================================='
@@ -108,10 +108,10 @@ if [ -z "$(command -v mean)" ]; then
 else
   npm update -g mean-cli
 fi
-# Install Mean.js
 if [ -z "$(command -v yo)" ]; then
   npm install -g yo
 else
   npm update -g yo
 fi
 npm install -g generator-meanjs
+sudo gem install sass
