@@ -45,7 +45,7 @@
 	ac = apply --check
 	#############
 	l = log --oneline
-	lo = log --online -5
+	lo = log --oneline -5
 	lg = log --oneline --graph --decorate
 	#############
 	o = checkout
