@@ -82,4 +82,6 @@ Vagrant.configure(2) do |config|
   # SHELL
   config.vm.provision "shell", path: ".provision/vagrant.sh", privileged: false
 
+  # FILE
+  config.vm.provision "file", source: ".provision/.gitconfig", destination: ".gitconfig"
 end

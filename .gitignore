@@ -1,6 +1,7 @@
 *
 !.gitignore
 !Vagrantfile
+!.provision/
 !.provision/*
 !README.md
 !LICENSE
