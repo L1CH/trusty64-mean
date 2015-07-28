@@ -79,7 +79,7 @@ if ! [ -d ~/.alt_node_modules/ ]; then
   mkdir ~/.alt_node_modules/
   echo '' | tee >> ~/.bashrc
   echo 'export NODE_PATH=~/.alt_node_modules/' | tee >> ~/.bashrc
-  echo 'export NODE_PATH=`npm root -g`:$NODE_PATH' | tee >> ~/.bashrc
+  echo 'export NODE_PATH=$NODE_PATH:`npm root -g`' | tee >> ~/.bashrc
 else
   echo 'Folder ~/.alt_node_modules/ already exists.'
 fi
