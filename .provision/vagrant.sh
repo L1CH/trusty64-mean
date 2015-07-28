@@ -12,9 +12,16 @@ echo '====                                  ===='
 echo '====                                  ===='
 echo '=========================================='
 # Upgrade system
+sudo apt-get -y autoremove
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get -y dist-upgrade
+# Add Git apt repo
+if ! [ -e /etc/apt/sources.list.d/git-ppa.launchpad.list ]; then
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0xA1715D88E1DF1F24
+  echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu "$(lsb_release -sc)" main" | sudo tee /etc/apt/sources.list.d/git-ppa.launchpad.list
+  sudo apt-get update
+fi
 # Install packages
 sudo apt-get -y install vim git ruby
 
@@ -29,7 +36,7 @@ echo '=========================================='
 # Install MongoDB
 if [ -z "$(command -v mongo)" ]; then
   echo 'Install MongoDB now...'
-  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0x9ECBEC467F0CEB10
   echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
   sudo apt-get update
   sudo apt-get -y install mongodb-org
