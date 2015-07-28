@@ -19,6 +19,7 @@ Run the following in CMD
 ```
 git clone https://github.com/L1CH/trusty64-mean.git
 cd trusty64-mean
+rm -rf .git
 vagrant up
 ```
 When vagrant finish its job, connect to VM
@@ -28,8 +29,8 @@ vagrant ssh
 
 ## Setup in vagrant
 
-1.  **The shell script below required to be run once when:**  
-    a. first time you run vagrant up  
+1.  **The shell script below required to be run once if:**  
+    a. you run vagrant up first time  
     OR  
     b. you update current vagrant box
 
@@ -37,10 +38,10 @@ vagrant ssh
     yes n | bower install
     ```
 
-2.  **The shell script below required to be run once when:**  
-    a. you create/init mean.io project  
+2.  **The shell script below required to be run once if *you are using Windows* AND :**  
+    a. you create/init mean.io project into *Vagrant Synced Folders*  
     OR  
-    b. you cloned any mean project  
+    b. you cloned any mean project into *Vagrant Synced Folders*  
     <br/>
 
     *You must run the following shell in the project folder (where you run npm install):*
