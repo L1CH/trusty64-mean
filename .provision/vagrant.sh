@@ -12,10 +12,10 @@ echo '====                                  ===='
 echo '====                                  ===='
 echo '=========================================='
 # Upgrade system
-sudo apt-get -y autoremove
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get -y dist-upgrade
+sudo apt-get -y autoremove
 # Add Git apt repo
 if ! [ -e /etc/apt/sources.list.d/git-ppa.launchpad.list ]; then
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0xA1715D88E1DF1F24
