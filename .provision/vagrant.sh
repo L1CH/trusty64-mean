@@ -17,9 +17,9 @@ sudo apt-get -y upgrade
 sudo apt-get -y dist-upgrade
 sudo apt-get -y autoremove
 # Add Git apt repo
-if ! [ -e /etc/apt/sources.list.d/git-ppa.launchpad.list ]; then
+if ! [ -e /etc/apt/sources.list.d/ppa-git-core.list ]; then
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0xA1715D88E1DF1F24
-  echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu "$(lsb_release -sc)" main" | sudo tee /etc/apt/sources.list.d/git-ppa.launchpad.list
+  echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu "$(lsb_release -sc)" main" | sudo tee /etc/apt/sources.list.d/ppa-git-core.list
   sudo apt-get update
 fi
 # Install packages
