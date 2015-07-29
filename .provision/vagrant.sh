@@ -24,6 +24,8 @@ if ! [ -e /etc/apt/sources.list.d/git-ppa.launchpad.list ]; then
 fi
 # Install packages
 sudo apt-get -y install vim git ruby
+# Install libs
+sudo apt-get -y install fontconfig
 
 echo ''
 echo '=========================================='
