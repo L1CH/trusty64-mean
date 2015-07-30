@@ -15,32 +15,38 @@ Vagrant >= 1.7.3
 VirtualBox >= 4.3.28 (**DO NOT USE 5.x**)
 
 ## How to start
-Run the following in CMD
-```
-git clone https://github.com/L1CH/trusty64-mean.git
-cd trusty64-mean
-rm -rf .git
-vagrant up
-```
-When vagrant finish its job, connect to VM
-```
-vagrant ssh
-```
+1.  Download the vagrant box files from [Release Page](https://github.com/L1CH/trusty64-mean/releases) and Unzip it (**Recommend**)  
+    **OR**  
+    Use git to obtain these files (**NOT Recommend**)  
+    ```
+    git clone https://github.com/L1CH/trusty64-mean.git
+    cd trusty64-mean
+    rm -rf .git
+    ```
+
+2.  Run the following command to bring up vagrant
+    ```
+    vagrant up
+    ```
+3.  Connect to vagrant guest machine, when vagrant finish its job
+    ```
+    vagrant ssh
+    ```
 
 ## Setup in vagrant
 
 1.  **The shell script below required to be run once if:**  
     a. you run vagrant up first time  
-    OR  
+    **OR**  
     b. you update current vagrant box
 
     ```
     yes n | bower install
     ```
 
-2.  **The shell script below required to be run once if *you are using Windows* AND :**  
+2.  **The shell script below required to be run once if *！you are using Windows！* AND :**  
     a. you create/init mean.io project into *Vagrant Synced Folders*  
-    OR  
+    **OR**  
     b. you cloned any mean project into *Vagrant Synced Folders*  
     <br/>
 
