@@ -28,6 +28,7 @@ VirtualBox >= 4.3.28 (**DO NOT USE 5.x**)
     ```
     vagrant up
     ```
+
 3.  Connect to vagrant guest machine, when vagrant finish its job  
     ```
     vagrant ssh
