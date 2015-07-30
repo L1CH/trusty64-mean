@@ -24,11 +24,11 @@ VirtualBox >= 4.3.28 (**DO NOT USE 5.x**)
     rm -rf .git
     ```
 
-2.  Run the following command to bring up vagrant
+2.  Run the following command to bring up vagrant  
     ```
     vagrant up
     ```
-3.  Connect to vagrant guest machine, when vagrant finish its job
+3.  Connect to vagrant guest machine, when vagrant finish its job  
     ```
     vagrant ssh
     ```
