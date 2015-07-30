@@ -42,6 +42,8 @@ if [ -z "$(command -v mongo)" ]; then
   echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
   sudo apt-get update
   sudo apt-get -y install mongodb-org
+  # Comment out MongoDB access restriction (only allow access from 127.0.0.1)
+  sudo sed -e '/bind_ip/ s/^#*/#/' -i /etc/mongod.conf
   echo 'Special System Tune for MongoDB...'
   sudo cp /etc/default/grub /etc/default/grub.bak
   sed -r 's/GRUB_CMDLINE_LINUX_DEFAULT="[a-zA-Z0-9_= ]*/& transparent_hugepage=never/' /etc/default/grub | sudo tee /etc/default/grub
