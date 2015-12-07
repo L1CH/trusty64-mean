@@ -24,12 +24,18 @@ VirtualBox >= 4.3.28 OR >= 5.0.10
     rm -rf .git
     ```
 
-2.  Run the following command to bring up vagrant  
+2.  You can change the nodejs version in **.provision/vagrant.sh**  
+    For example, install latest 4.x version:  
+    ```
+    VAGRANT_NODE_VERSION=v4
+    ```
+
+3.  Run the following command to bring up vagrant  
     ```
     vagrant up
     ```
 
-3.  Connect to vagrant guest machine, when vagrant finish its job  
+4.  Connect to vagrant guest machine, when vagrant finish its job  
     ```
     vagrant ssh
     ```

@@ -3,6 +3,10 @@
 # This shell is running on vagrant
 # Requires: Ubuntu Trusty64 with 1G memory and 2 cpu cores
 
+# Parameters BEGIN
+VAGRANT_NODE_VERSION=node #define which node version to install (node: latest nodejs stable)
+# Parameters END
+
 echo ''
 echo '=========================================='
 echo '====                                  ===='
@@ -70,8 +74,8 @@ if ! [ -f ~/.nvm/nvm.sh ]; then
   sudo apt-get -y install make gcc g++ clang python
   wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
   source ~/.nvm/nvm.sh
-  nvm install node
-  nvm alias default node
+  nvm install $VAGRANT_NODE_VERSION
+  nvm alias default $VAGRANT_NODE_VERSION
 else
   echo 'nvm already installed.'
   source ~/.nvm/nvm.sh
