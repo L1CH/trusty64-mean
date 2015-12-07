@@ -68,7 +68,7 @@ echo '=========================================='
 if ! [ -f ~/.nvm/nvm.sh ]; then
   echo 'Install nvm now...'
   sudo apt-get -y install make gcc g++ clang python
-  wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+  wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
   source ~/.nvm/nvm.sh
   nvm install stable
   nvm alias default stable
