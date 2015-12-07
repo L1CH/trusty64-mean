@@ -29,7 +29,7 @@ fi
 # Install packages
 sudo apt-get -y install vim git ruby
 # Install libs
-sudo apt-get -y install fontconfig
+sudo apt-get -y install fontconfig libfontconfig1 libfontconfig1-dev libfreetype6-dev
 
 echo ''
 echo '=========================================='
