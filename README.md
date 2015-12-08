@@ -4,7 +4,7 @@ This is an all-in-one vagrant box for developing mean.io/mean.js projects.
 
 
 ## Read me first
-Always Run Vagrant as Administrator
+Always Run Vagrant as **Administrator**
 ```
 e.g. open CMD as Administrator, then type any vagrant commands
 ```
@@ -12,7 +12,7 @@ e.g. open CMD as Administrator, then type any vagrant commands
 ## Prerequisite
 Git >= 1.9.x  
 Vagrant >= 1.7.4  
-VirtualBox >= 4.3.28 OR >= 5.0.10
+VirtualBox >= 5.0.10
 
 ## How to start
 1.  Download the vagrant box files from [Release Page](https://github.com/L1CH/trusty64-mean/releases) and Unzip it (**Recommend**)  
