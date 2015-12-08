@@ -149,3 +149,10 @@ fi
 npm install -g generator-meanjs
 sudo gem update --system
 sudo gem install sass
+# Install Chrome (required by Mean.js E2E test)
+sudo apt-get install -y libxss1 libappindicator1 libindicator7 libpango1.0 fonts-liberation xdg-utils
+sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome*.deb
+sudo rm -rf google-chrome*.deb
+# Install Firefox (required by Mean.js)
+sudo apt-get install -y firefox

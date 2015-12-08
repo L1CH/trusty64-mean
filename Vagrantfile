@@ -85,4 +85,9 @@ Vagrant.configure(2) do |config|
 
   # FILE
   config.vm.provision "file", source: ".provision/.gitconfig", destination: ".gitconfig"
+
+  # Enable XVFB
+  config.vm.provision "file", source: ".provision/xvfb", destination: "xvfb"
+  config.vm.provision "shell", path: ".provision/xvfb.init.sh", privileged: false
+  
 end

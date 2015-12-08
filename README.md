@@ -30,8 +30,9 @@ VirtualBox >= 4.3.28 OR >= 5.0.10
     VAGRANT_NODE_VERSION=v4
     ```
 
-3.  Run the following command to bring up vagrant  
+3.  Run the following command to restart and bring up vagrant  
     ```
+    vagrant reload
     vagrant up
     ```
 
