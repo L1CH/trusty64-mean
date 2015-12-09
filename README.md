@@ -4,15 +4,15 @@ This is an all-in-one vagrant box for developing mean.io/mean.js projects.
 
 
 ## Read me first
-Always Run Vagrant as Administrator
+Always Run Vagrant as **Administrator**
 ```
 e.g. open CMD as Administrator, then type any vagrant commands
 ```
 
 ## Prerequisite
 Git >= 1.9.x  
-Vagrant >= 1.7.3  
-VirtualBox >= 4.3.28 (**DO NOT USE 5.x**)
+Vagrant >= 1.7.4  
+VirtualBox >= 5.0.10
 
 ## How to start
 1.  Download the vagrant box files from [Release Page](https://github.com/L1CH/trusty64-mean/releases) and Unzip it (**Recommend**)  
@@ -24,12 +24,19 @@ VirtualBox >= 4.3.28 (**DO NOT USE 5.x**)
     rm -rf .git
     ```
 
-2.  Run the following command to bring up vagrant  
+2.  You can change the nodejs version in **.provision/vagrant.sh**  
+    For example, install latest 4.x version:  
     ```
+    VAGRANT_NODE_VERSION=v4
+    ```
+
+3.  Run the following command to restart and bring up vagrant  
+    ```
+    vagrant reload
     vagrant up
     ```
 
-3.  Connect to vagrant guest machine, when vagrant finish its job  
+4.  Connect to vagrant guest machine, when vagrant finish its job  
     ```
     vagrant ssh
     ```

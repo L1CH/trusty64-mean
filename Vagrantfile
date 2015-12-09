@@ -62,7 +62,7 @@ Vagrant.configure(2) do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
   config.vm.provider "virtualbox" do |v|
-    v.memory = 1024
+    v.memory = 2048
     v.cpus = 2
   end
 
@@ -80,8 +80,14 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
+  config.vm.provision "shell", path: ".provision/increase_swap.sh", privileged: true
   config.vm.provision "shell", path: ".provision/vagrant.sh", privileged: false
 
   # FILE
   config.vm.provision "file", source: ".provision/.gitconfig", destination: ".gitconfig"
+
+  # Enable XVFB
+  config.vm.provision "file", source: ".provision/xvfb", destination: "xvfb"
+  config.vm.provision "shell", path: ".provision/xvfb.init.sh", privileged: false
+  
 end
