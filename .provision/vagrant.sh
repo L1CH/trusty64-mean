@@ -51,20 +51,16 @@ echo '=========================================='
 # Install MongoDB
 if [ -z "$(command -v mongo)" ]; then
   echo 'Install MongoDB now...'
+  # MongoDB 3.0
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0x9ECBEC467F0CEB10
   echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+  # MongoDB 3.2
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0xD68FA50FEA312927
+  echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
   sudo apt-get update
   sudo apt-get -y install mongodb-org
   # Comment out MongoDB access restriction (only allow access from 127.0.0.1)
   sudo sed -e '/bind_ip/ s/^#*/#/' -i /etc/mongod.conf
-  echo 'Special System Tune for MongoDB...'
-  sudo cp /etc/default/grub /etc/default/grub.bak
-  sed -r 's/GRUB_CMDLINE_LINUX_DEFAULT="[a-zA-Z0-9_= ]*/& transparent_hugepage=never/' /etc/default/grub | sudo tee /etc/default/grub
-  if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
-    sudo cp /etc/default/grub.d/50-cloudimg-settings.cfg /etc/default/grub.d/50-cloudimg-settings.cfg.bak
-    sed -r 's/GRUB_CMDLINE_LINUX_DEFAULT="[a-zA-Z0-9_= ]*/& transparent_hugepage=never/' /etc/default/grub.d/50-cloudimg-settings.cfg | sudo tee /etc/default/grub.d/50-cloudimg-settings.cfg
-  fi
-  sudo update-grub
 else
   echo 'MongoDB already installed.'
 fi
