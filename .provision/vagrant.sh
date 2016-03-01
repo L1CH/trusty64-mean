@@ -51,9 +51,6 @@ echo '=========================================='
 # Install MongoDB
 if [ -z "$(command -v mongo)" ]; then
   echo 'Install MongoDB now...'
-  # MongoDB 3.0
-  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0x9ECBEC467F0CEB10
-  echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
   # MongoDB 3.2
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0xD68FA50FEA312927
   echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
@@ -77,7 +74,7 @@ echo '=========================================='
 if ! [ -f ~/.nvm/nvm.sh ]; then
   echo 'Install nvm now...'
   sudo apt-get -y install make gcc g++ clang python
-  wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+  wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
   source ~/.nvm/nvm.sh
   nvm install $VAGRANT_NODE_VERSION
   nvm alias default $VAGRANT_NODE_VERSION
