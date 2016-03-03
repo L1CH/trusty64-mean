@@ -82,6 +82,7 @@ Vagrant.configure(2) do |config|
   # SHELL
   config.vm.provision "shell", path: ".provision/increase_swap.sh", privileged: true
   config.vm.provision "shell", path: ".provision/vagrant.sh", privileged: false
+  config.vm.provision "shell", path: ".provision/mongodb.sh", privileged: false
 
   # FILE
   config.vm.provision "file", source: ".provision/.gitconfig", destination: ".gitconfig"
@@ -89,5 +90,9 @@ Vagrant.configure(2) do |config|
   # Enable XVFB
   config.vm.provision "file", source: ".provision/xvfb", destination: "xvfb"
   config.vm.provision "shell", path: ".provision/xvfb.init.sh", privileged: false
+
+  # Disable THP for Mongo
+  config.vm.provision "file", source: ".provision/disable-transparent-hugepages", destination: "disable-transparent-hugepages"
+  config.vm.provision "shell", path: ".provision/disable-transparent-hugepages.init.sh", privileged: false
   
 end

@@ -63,5 +63,13 @@ VirtualBox >= 5.0.10
     ln -s ~/.alt_node_modules node_modules
     ```
 
+## Recommend Operations (Optional)
+
+1.  Install Vagrant Plugins:
+    a. Automatically Update VirtualBox Guest Addiction:  
+    ```
+    vagrant plugin install vagrant-vbguest
+    ```
+
 ##  Licensing
 The source code is licensed under GPL v3. License is available [here](/LICENSE).
