@@ -1,10 +1,10 @@
-Vagrant Box For Mean.io/Mean.js Project
+Vagrant Box For Mean.js Project
 =================
-This is an all-in-one vagrant box for developing mean.io/mean.js projects.
+This is an all-in-one vagrant box for developing mean.js projects.
 
 
 ## Read me first
-Always Run Vagrant as **Administrator**
+Always Run Vagrant as **!!! Administrator !!!**
 ```
 e.g. open CMD as Administrator, then type any vagrant commands
 ```
@@ -19,21 +19,21 @@ VirtualBox >= 5.0.10
     **OR**  
     Use git to obtain these files (**NOT Recommend**)  
     ```
-    git clone https://github.com/L1CH/trusty64-mean.git
+    git clone https://github.com/QiyuLi/trusty64-mean.git
     cd trusty64-mean
     rm -rf .git
     ```
 
-2.  You can change the nodejs version in **.provision/vagrant.sh**  
+2.  You can change the nodejs version in folder **.provision/vagrant.sh**  
     For example, install latest 4.x version:  
     ```
     VAGRANT_NODE_VERSION=v4
     ```
 
-3.  Run the following command to restart and bring up vagrant  
+3.  Run the following command (in the folder where Vagrantfile locates) to bring up and restart vagrant  
     ```
-    vagrant reload
     vagrant up
+    vagrant reload
     ```
 
 4.  Connect to vagrant guest machine, when vagrant finish its job  
@@ -42,25 +42,24 @@ VirtualBox >= 5.0.10
     ```
 
 ## Setup in vagrant
-
-1.  **The shell script below required to be run once if:**  
-    a. you run vagrant up first time  
+1.  **The shell script below required to be run once if *！you are using Windows！* AND :**  
+    a. you create/init mean.js project into *Vagrant Synced Folders* (**/vagrant** folder on guest machine)  
     **OR**  
-    b. you update current vagrant box
-
-    ```
-    yes n | bower install
-    ```
-
-2.  **The shell script below required to be run once if *！you are using Windows！* AND :**  
-    a. you create/init mean.io project into *Vagrant Synced Folders*  
-    **OR**  
-    b. you cloned any mean project into *Vagrant Synced Folders*  
+    b. you cloned any mean project into *Vagrant Synced Folders* (**/vagrant** folder on guest machine)  
     <br/>
 
-    *You must run the following shell in the project folder (where you run npm install):*
+    *You must run the following shell in the project folder (where you run npm install):*  
     ```
     ln -s ~/.alt_node_modules node_modules
+    ```
+
+    **For example:** (inside guest machine)  
+    ```
+    git clone https://github.com/meanjs/mean.git
+    cd mean
+    ln -s ~/.alt_node_modules node_modules
+    npm install
+    grunt test
     ```
 
 ## Recommend Operations (Optional)
