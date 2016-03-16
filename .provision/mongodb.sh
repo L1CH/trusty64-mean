@@ -21,6 +21,7 @@ if [ -z "$(command -v mongo)" ]; then
   sudo apt-get -y install mongodb-org
   # Comment out MongoDB access restriction (only allow access from 127.0.0.1)
   sudo sed -e '/bind_ip/ s/^#*/#/' -i /etc/mongod.conf
+  sudo sed -e '/bindIp/ s/^#*/#/' -i /etc/mongod.conf
 else
   echo 'MongoDB already installed.'
 fi
