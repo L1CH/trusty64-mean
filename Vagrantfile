@@ -94,5 +94,10 @@ Vagrant.configure(2) do |config|
   # Disable THP for Mongo
   config.vm.provision "file", source: ".provision/disable-transparent-hugepages", destination: "disable-transparent-hugepages"
   config.vm.provision "shell", path: ".provision/disable-transparent-hugepages.init.sh", privileged: false
+
+  
+  # Some help to stupid npm
+  config.vm.provision "file", source: ".provision/helpnpm", destination: "helpnpm"
+  config.vm.provision "shell", path: ".provision/helpnpm.init.sh", privileged: false
   
 end

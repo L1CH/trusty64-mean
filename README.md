@@ -24,7 +24,7 @@ VirtualBox >= 5.0.10
     rm -rf .git
     ```
 
-2.  You can change the nodejs version in folder **.provision/vagrant.sh**  
+2.  (Optional) You can change the nodejs version in folder **.provision/vagrant.sh**  
     For example, install latest 4.x version:  
     ```
     VAGRANT_NODE_VERSION=v4
@@ -36,33 +36,28 @@ VirtualBox >= 5.0.10
     vagrant reload
     ```
 
-4.  Connect to vagrant guest machine, when vagrant finish its job  
+4.  Connect to vagrant guest machine, when vagrant finishes 
     ```
     vagrant ssh
     ```
 
 ## Setup in vagrant
-1.  **The shell script below required to be run once if *！you are using Windows！* AND :**  
-    a. you create/init mean.js project into *Vagrant Synced Folders* (**/vagrant** folder on guest machine)  
-    **OR**  
-    b. you cloned any mean project into *Vagrant Synced Folders* (**/vagrant** folder on guest machine)  
-    <br/>
-
-    *You must run the following shell in the project folder (where you run npm install):*  
+1.  Run the following command in guest Linux after **NEW** project is created under /vagrant.  
     ```
-    ln -s ~/.alt_node_modules node_modules
+    helpnpm
     ```
 
     **For example:** (inside guest machine)  
     ```
+    cd /vagrant
     git clone https://github.com/meanjs/mean.git
     cd mean
-    ln -s ~/.alt_node_modules node_modules
+    helpnpm
     npm install
     grunt test
     ```
 
-## Recommend Operations (Optional)
+## (Optional) Recommend Operations
 
 1.  Install Vagrant Plugins:
     a. Automatically Update VirtualBox Guest Addiction:  
