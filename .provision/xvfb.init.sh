@@ -15,3 +15,4 @@ if ! [ -e /etc/init.d/xvfb ]; then
 else
   echo 'File /etc/init.d/xvfb already exists.'
 fi
+sudo service xvfb start

@@ -60,17 +60,8 @@ else
   echo 'nvm already installed.'
   source ~/.nvm/nvm.sh
 fi
-
-# Setup nodejs NODE_PATH
-if ! [ -d ~/.alt_node_modules/ ]; then
-  echo 'Folder ~/.alt_node_modules/ is generating...'
-  mkdir ~/.alt_node_modules/
-  echo '' | tee >> ~/.bashrc
-  echo 'export NODE_PATH=~/.alt_node_modules/' | tee >> ~/.bashrc
-  echo 'export NODE_PATH=$NODE_PATH:`npm root -g`' | tee >> ~/.bashrc
-else
-  echo 'Folder ~/.alt_node_modules/ already exists.'
-fi
+# Upgrade npm
+npm update -g npm
 
 echo ''
 echo '=========================================='
@@ -101,16 +92,10 @@ echo ''
 echo '=========================================='
 echo '====                                  ===='
 echo '====                                  ===='
-echo '====    Installing Mean.io/Mean.js    ===='
+echo '====    Installing Mean.js    ===='
 echo '====                                  ===='
 echo '====                                  ===='
 echo '=========================================='
-# Install Mean.io
-if [ -z "$(command -v mean)" ]; then
-  npm install -g mean-cli
-else
-  npm update -g mean-cli
-fi
 # Install Mean.js
 if [ -z "$(command -v yo)" ]; then
   npm install -g yo

@@ -1,0 +1,32 @@
+#!/bin/bash
+BASE=/vagrant
+FILE=package.json
+DEST=~/.alt_node_modules
+
+for dir in $(ls $BASE)
+do
+  if [ -d "$BASE/$dir" ]
+  then
+    if [ -f "$BASE/$dir/$FILE" ]
+    then
+      echo "$BASE/$dir/$FILE Found."
+      # Create node_modules if not exists
+      if [ ! -d "$BASE/$dir/node_modules" ]
+      then
+        mkdir $BASE/$dir/node_modules
+      fi
+      if [ ! -d "$DEST/$dir" ]
+      then
+        mkdir $DEST/$dir
+      fi
+      # Mount if not
+      if grep -Fq "$BASE/$dir/node_modules" /proc/mounts
+      then
+        echo "$BASE/$dir/node_modules already mounted."
+      else
+        sudo mount --bind $DEST/$dir $BASE/$dir/node_modules
+        echo "$BASE/$dir/node_modules successfully mounted."
+      fi
+    fi
+  fi
+done
