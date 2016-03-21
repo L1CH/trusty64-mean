@@ -15,12 +15,16 @@ do
       then
         mkdir $BASE/$dir/node_modules
       fi
+      if [ ! -d "$DEST/$dir" ]
+      then
+        mkdir $DEST/$dir
+      fi
       # Mount if not
       if grep -Fq "$BASE/$dir/node_modules" /proc/mounts
       then
         echo "$BASE/$dir/node_modules already mounted."
       else
-        sudo mount --bind $DEST $BASE/$dir/node_modules
+        sudo mount --bind $DEST/$dir $BASE/$dir/node_modules
         echo "$BASE/$dir/node_modules successfully mounted."
       fi
     fi
