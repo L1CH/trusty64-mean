@@ -4,7 +4,7 @@
 # Requires: Ubuntu Trusty64 with 1G memory and 2 cpu cores
 
 # Parameters BEGIN
-VAGRANT_NODE_VERSION=node #define which node version to install (node: latest nodejs stable)
+VAGRANT_NODE_VERSION=v5 #define which node version to install (node: latest nodejs stable)
 # Parameters END
 
 echo ''
@@ -107,6 +107,7 @@ sudo gem update --system
 sudo gem install sass
 # Install Chrome (required by Mean.js E2E test)
 sudo apt-get install -y libxss1 libappindicator1 libindicator7 libpango1.0 fonts-liberation xdg-utils
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1397BC53640DB551
 sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome*.deb
 sudo rm -rf google-chrome*.deb
